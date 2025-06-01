@@ -1,0 +1,278 @@
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.calendar-wrapper {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.calendar-container {
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1080px;
+  height: 100%;
+  border: 1px solid #cccccc; /* light gray border */
+}
+
+
+/* ==== FullCalendar Custom Overrides ==== */
+
+/* Base calendar font and layout */
+.fc {
+  font-family: 'Inter', sans-serif !important;
+  color: #213547;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.fc-daygrid-body tr:nth-child(6) {
+  display: none;
+}
+
+/* Align weekday names (Sun, Mon, ...) to the left */
+.fc .fc-col-header-cell {
+  text-align: left;
+  padding-left: 0.55rem; /* optional: adds left padding for cleaner look */
+  /* optionally set a max-width */
+  max-width: 50px; /* adjust as needed */
+  white-space: nowrap;
+}
+
+/* Day header row (Sun, Mon, ...) */
+.fc .fc-col-header-cell-cushion {
+  color: #1a1a1a;
+  font-weight: 600;
+  padding: 0.75rem 0;
+}
+
+/* Custom height for day cells in month view */
+.fc .fc-daygrid-day-frame {
+  min-height: 110px; /* Adjust this value to control cell height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Date number in each cell */
+.fc .fc-daygrid-day-number {
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem;
+  color: #1a1c2c;
+}
+
+/* Today’s date highlight */
+.fc .fc-day-today {
+  background-color: #FFEBC8!important;
+}
+
+/* Days from previous or next months */
+.fc .fc-day-other {
+  background-color: #f4f4f4;;
+  color: #aaa;
+}
+
+/* Cell hover */
+.fc .fc-daygrid-day:hover {
+  background-color: #f0f4ff;
+  cursor: pointer;
+}
+
+/* Events */
+.fc .fc-event {
+  background-color: #e6f3FF;
+  color: #0084FF !important;
+  border: none;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(100, 108, 255, 0.4);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.fc .fc-event-title {
+  color: #3B5DCB !important; /* Replace with your desired text color */
+  font-weight: 600;
+}
+
+.fc .fc-event:hover .fc-event-title {
+  color: #ffffff !important; /* Your desired hover text color */
+}
+
+.fc .fc-event:hover {
+  background-color: #535bf2;
+}
+
+/* Disable unwanted focus outline */
+.fc .fc-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Hide unnecessary scrollbars */
+.fc-scroller::-webkit-scrollbar {
+  display: none;
+}
+.fc-scroller {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* spacing for the toolbar */
+.fc-toolbar-title {
+  padding-left: 0.5rem; 
+}
+
+.fc-header-toolbar {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-left: 3rem;
+}
+
+/* left and right chunks will take up flexible space */
+.fc-toolbar-chunk {
+  flex-grow: 1;
+  flex-basis: 0; 
+  text-align: left;
+}
+
+.fc-toolbar-chunk:nth-child(2) { 
+  flex-grow: 0; 
+  text-align: center;
+}
+
+.fc-toolbar-chunk:nth-child(1) {
+  text-align: left;
+}
+
+.fc-toolbar-chunk:nth-child(3) {
+  text-align: right;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding-right: 3rem; 
+}
+
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;  
+  align-items: center;    
+  padding: 2rem;
+}
+
+.calendar-container {
+  position: relative; /* NEW: makes it a reference point */
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1080px;
+  height: 100%;
+  border: 1px solid #cccccc;
+}
+
+.edit-button-container{
+  padding-top: 0.55rem;
+}
+
+.edit-button-container button {
+  all: unset;
+  cursor: pointer;
+  color: #000;
+  display: flex;
+  flex-direction: column; /* Stack icon above text */
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  background-color: #f4f4f4;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.edit-button-container button i {
+  font-size: 1.4rem;
+  color: #02326d;
+  transition: color 0.2s ease;
+}
+
+.edit-button-container button:hover i {
+  color: #345986;
+}
+
+.edit-button-container button:hover {
+  background-color: #e0e7ff;
+}
+
+
+.fc-custom-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fc-header-weekday {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 2px;
+}
+
+.fc-header-day {
+  font-size: 1.4rem;
+  color: #000;
+  line-height: 1.2;
+}
+
+.calendar-popup {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-size: 0.9rem;
+  z-index: 1000;
+  animation: fadeSlideIn 0.3s ease-out, fadeSlideOut 0.3s ease-in 2.2s forwards;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideOut {
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.fc-timegrid-body, .fc-scroller {
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE 10+ */
+}
+
+.fc-timegrid-body::-webkit-scrollbar,
+.fc-scroller::-webkit-scrollbar {
+  display: none;                 /* Chrome, Safari, Opera */
+}

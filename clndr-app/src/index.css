@@ -1,0 +1,161 @@
+/* General Reset and Box Model */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures consistent box sizing across all elements */
+}
+
+/* Root and Global Typography */
+:root {
+  font-family: Inter, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Body Background & Reset */
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f2f2f2; /* fallback if bg image fails */
+}
+
+/* Headers */
+header {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  background: white;
+  color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo and Account Header */
+.clndr {
+  width: clamp(64px, 9vw, 150px);
+  height: auto;
+  transition: width 0.25s ease-in-out;
+}
+
+.accountDisplay {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: width 0.25s ease-in-out;
+}
+
+.userPlaceholder {
+  background: rgba(229, 233, 237, 0.7);
+  border-radius: 29px;
+  padding: 12px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  max-width: 220px;
+  box-sizing: border-box;
+  transition: width 0.25s ease-in-out;
+}
+
+.userText {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: clamp(14px, 2vw, 20px);
+  color: black;
+  white-space: nowrap;
+  transition: width 0.25s ease-in-out;
+}
+
+.account_icon {
+  width: clamp(30px, 6vw, 48px);
+  height: auto;
+  transition: width 0.25s ease-in-out;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .clndr {
+    max-width: 15%;
+  }
+
+  .accountDisplay {
+    gap: 6px;
+  }
+
+  .userPlaceholder {
+    width: 150px;
+    height: 45px;
+  }
+
+  .userText {
+    font-size: 18px;
+    left: 50px;
+    top: 8px;
+  }
+
+  .account_icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .clndr {
+    max-width: 28%;
+  }
+
+  .userPlaceholder {
+    width: 90px;
+    height: 30px;
+  }
+
+  .userText {
+    font-size: 16px;
+    left: 40px;
+    top: 7px;
+  }
+
+  .account_icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Light Mode Overrides */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
